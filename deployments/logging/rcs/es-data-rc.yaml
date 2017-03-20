@@ -94,8 +94,8 @@ spec:
         - name: hooks
           mountPath: /hooks
 
-      nodeSelector:
-        elastic: data
+      # nodeSelector:
+      #   elastic: data
 
       terminationGracePeriodSeconds: 10
       volumes:
