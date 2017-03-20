@@ -6,7 +6,7 @@ metadata:
   labels:
     k8s-app: logstash
 spec:
-  replicas: 0
+  replicas: 1
   revisionHistoryLimit: 2
   strategy:
       rollingUpdate:
@@ -41,5 +41,5 @@ spec:
         secret:
           secretName: logstash
 
-      nodeSelector:
-          zone: "be-prod"
+      # nodeSelector:
+      #     zone: "be-prod"

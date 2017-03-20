@@ -4,7 +4,7 @@ metadata:
   name: curator
   namespace: logging
 spec:
-  replicas: 0
+  replicas: 1
   revisionHistoryLimit: 2
   template:
     metadata:
@@ -30,5 +30,5 @@ spec:
       #       cpu: 50m
       #       memory: 50Mi
       #
-      nodeSelector:
-          zone: "be-prod"
+      # nodeSelector:
+      #     zone: "be-prod"

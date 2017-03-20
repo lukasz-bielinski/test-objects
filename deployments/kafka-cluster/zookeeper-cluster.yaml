@@ -4,7 +4,7 @@ metadata:
   name: zookeeper-deployment-1
   namespace: kafka-cluster
 spec:
-  replicas: 0
+  replicas: 1
   selector:
     matchLabels:
       app: zookeeper-1
@@ -29,8 +29,8 @@ spec:
           value: zoo2
         - name: ZOOKEEPER_SERVER_3
           value: zoo3
-      nodeSelector:
-          zone: "be-prod"
+      # nodeSelector:
+      #     zone: "be-prod"
 ---
 kind: Deployment
 apiVersion: extensions/v1beta1
@@ -38,7 +38,7 @@ metadata:
   name: zookeeper-deployment-2
   namespace: kafka-cluster
 spec:
-  replicas: 0
+  replicas: 1
   selector:
     matchLabels:
       app: zookeeper-2
@@ -63,8 +63,8 @@ spec:
           value: zoo2
         - name: ZOOKEEPER_SERVER_3
           value: zoo3
-      nodeSelector:
-          zone: "be-prod"
+      # nodeSelector:
+      #     zone: "be-prod"
 ---
 kind: Deployment
 apiVersion: extensions/v1beta1
@@ -72,7 +72,7 @@ metadata:
   name: zookeeper-deployment-3
   namespace: kafka-cluster
 spec:
-  replicas: 0
+  replicas: 1
   selector:
     matchLabels:
       app: zookeeper-3
@@ -97,5 +97,5 @@ spec:
           value: zoo2
         - name: ZOOKEEPER_SERVER_3
           value: zoo3
-      nodeSelector:
-          zone: "be-prod"
+      # nodeSelector:
+      #     zone: "be-prod"

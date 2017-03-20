@@ -4,7 +4,7 @@ metadata:
   name: kafka-deployment
   namespace: kafka-cluster
 spec:
-  replicas: 0
+  replicas: 3
   strategy:
       rollingUpdate:
         maxUnavailable: 0
@@ -44,8 +44,8 @@ spec:
           - name: KAFKA_CREATE_TOPICS
             value: "k8slogstsm:3:2,k8slogsmain:3:2"
 
-      nodeSelector:
-          zone: "be-prod"
+      # nodeSelector:
+      #     zone: "be-prod"
 
 
 ##usr/bin/kafka-consumer-offset-checker --group flume --topic testf --zookeeper zoo1.kafka-cluster:2181,zoo2.kafka-cluster:2181,zoo3.kafka-cluster:2181
