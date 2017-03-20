@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: filebeat
-        image: apsops/filebeat-kubernetes:latest
+        image: lukaszbielinski/docker-filebeat:5.2.2
         command: ["/usr/local/bin/filebeat", "-e", "-c", "/etc/filebeat-new/filebeat.yml"]
         # resources:
         #   limits:
