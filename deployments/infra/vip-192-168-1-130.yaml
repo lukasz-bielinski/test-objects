@@ -26,13 +26,13 @@ spec:
           imagePullPolicy: IfNotPresent
           securityContext:
             privileged: true
-          resources:
-            requests:
-              cpu: 30m
-              memory: 32Mi
-            limits:
-              cpu: 1
-              memory: 48Mi
+          # resources:
+          #   requests:
+          #     cpu: 30m
+          #     memory: 32Mi
+          #   limits:
+          #     cpu: 1
+          #     memory: 48Mi
           env:
             - name: VIP
               value: "192.168.1.130"
