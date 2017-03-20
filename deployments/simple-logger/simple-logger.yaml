@@ -1,0 +1,78 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: kibana
+  namespace: logging
+  labels:
+    k8s-app: kibana-logging
+    version: v1
+spec:
+  replicas: 1
+  revisionHistoryLimit: 2
+  strategy:
+      rollingUpdate:
+        maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        k8s-app: kibana-logging
+        version: v1
+    spec:
+      containers:
+      - name: kibana
+        image: oberthur/kibana:4.6.3
+        imagePullPolicy: Always
+        resources:
+                requests:
+                  # cpu: 1000m
+                  memory: 400Mi
+                limits:
+                  # cpu: 2500m
+                  memory: 400Mi
+
+        env:
+        - name: "ELASTICSEARCH_URL"
+          value: "http://elasticsearch.logging:9200"
+        - name: ELASTICSEARCH_HOST
+          value: "elasticsearch.logging"
+        - name: "NODE_OPTIONS"
+          value: "--max-old-space-size=200"
+        - name: "KIBANA_INDEX"
+          value: ".kibana-tsm-cluster"
+
+        ports:
+        - containerPort: 5601
+          name: http
+          protocol: TCP
+
+        # lifecycle:
+        #   postStart:
+        #     exec:
+        #       command: ["/bin/bash","/kibana/indexes.sh"]
+
+        livenessProbe:
+          tcpSocket:
+            port: 5601
+          initialDelaySeconds: 10
+          timeoutSeconds: 1
+
+        readinessProbe:
+          tcpSocket:
+              port: 5601
+          initialDelaySeconds: 10
+          timeoutSeconds: 1
+
+
+        volumeMounts:
+        - name: kibana
+          mountPath: /kibana
+
+      terminationGracePeriodSeconds: 1
+      volumes:
+        - name: kibana
+          secret:
+            secretName: kibana
+      # 
+      # nodeSelector:
+      #     zone: "be-prod"
+#11

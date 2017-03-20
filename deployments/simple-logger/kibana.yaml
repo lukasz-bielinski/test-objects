@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: simple-logger
+  namespace: simple-logger
+spec:
+  replicas: 1
+  revisionHistoryLimit: 2
+  strategy:
+      rollingUpdate:
+        maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+
+    spec:
+      containers:
+      - name: simple-logger
+        image: lukaszbielinski/simple-logger-app:0.0.2-SNAPSHOT
+        imagePullPolicy: Always
