@@ -14,6 +14,6 @@ spec:
   selector:
     app: kafka
 
-  externalIPs:
-    - "172.16.239.71"
+  # externalIPs:
+  #   - "172.16.239.71"
 #
