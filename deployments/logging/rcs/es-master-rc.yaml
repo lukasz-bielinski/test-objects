@@ -7,7 +7,7 @@ metadata:
     component: elasticsearch
     role: master
 spec:
-  replicas: 0
+  replicas: 3
   revisionHistoryLimit: 2
   strategy:
       rollingUpdate:
@@ -30,11 +30,11 @@ spec:
         imagePullPolicy: Always
         resources:
                 requests:
-                  cpu: 1500m
-                  memory: 2000Mi
+                  cpu: 10m
+                  memory: 1000Mi
                 limits:
                   cpu: 3000m
-                  memory: 2000Mi
+                  memory: 1000Mi
         env:
         - name: KUBERNETES_CA_CERTIFICATE_FILE
           value: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
@@ -53,7 +53,7 @@ spec:
         - name: KUBERNETES_TRUST_CERTIFICATES
           value: "true"
         - name: ES_HEAP_SIZE
-          value: "1000m"
+          value: "500m"
         - name: "NUMBER_OF_MASTERS"
           value: "2"
         - name: "NUMBER_OF_REPLICAS"
@@ -102,6 +102,6 @@ spec:
           secret:
             secretName: hooks
 
-      nodeSelector:
-          zone: "be-prod"
+      # nodeSelector:
+      #     zone: "be-prod"
       dnsPolicy: ClusterFirst
