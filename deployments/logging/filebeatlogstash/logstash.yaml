@@ -1,0 +1,45 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: logstash
+  namespace: logging
+  labels:
+    k8s-app: logstash
+spec:
+  replicas: 0
+  revisionHistoryLimit: 2
+  strategy:
+      rollingUpdate:
+        maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        k8s-app: logstash
+    spec:
+      containers:
+      - name: logstash
+        image: quay.io/pires/docker-logstash:5.1.2
+        command: ["/logstash/bin/logstash", "--quiet", "-f", "/etc/logstash/logstash.yml"]
+        resources:
+          requests:
+            cpu: 1000m
+          limits:
+            cpu: 1000m
+
+        ports:
+        - containerPort: 5044
+          name: http
+          protocol: TCP
+
+        volumeMounts:
+        - mountPath: /etc/logstash
+          name: logstash
+
+      terminationGracePeriodSeconds: 1
+      volumes:
+      - name: logstash
+        secret:
+          secretName: logstash
+
+      nodeSelector:
+          zone: "be-prod"

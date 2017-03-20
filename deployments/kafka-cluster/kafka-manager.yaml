@@ -1,0 +1,33 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: kafka-manager
+  namespace: kafka-cluster
+  labels:
+    k8s-app: kafka-manager
+spec:
+  replicas: 0
+  strategy:
+      rollingUpdate:
+        maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        k8s-app: kafka-manager
+    spec:
+      containers:
+      - name: kafka-manager
+        image: sheepkiller/kafka-manager:1.3.1.8
+        imagePullPolicy: Always
+
+        env:
+        - name: "ZK_HOSTS"
+          value: "zoo1.kafka-cluster:2181,zoo2.kafka-cluster:2181,zoo3.kafka-cluster:2181"
+
+        ports:
+        - containerPort: 9000
+
+      terminationGracePeriodSeconds: 1
+      nodeSelector:
+          zone: "be-prod"
+#11

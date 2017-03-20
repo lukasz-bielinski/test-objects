@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    k8s-app: kibana-logging
+    kubernetes.io/cluster-service: "true"
+    version: v1
+  name: kibana-logging-v1
+  namespace: logging
+spec:
+  ports:
+  - port: 5601
+    protocol: TCP
+    targetPort: 5601
+  selector:
+    k8s-app: kibana-logging
+    version: v1
+
+  externalIPs:
+    - "172.16.239.71"

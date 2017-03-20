@@ -1,4 +1,4 @@
-#poststart
+###poststart
 sleep 60
 apk add --update curl bash jq
 echo "Starting poststart hook"
@@ -14,3 +14,5 @@ echo "Starting poststart hook"
 
 /bin/bash /hooks/reallocate.sh
 exit 0
+#
+#

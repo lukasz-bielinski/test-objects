@@ -1,0 +1,29 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sysbench
+  namespace: logging
+spec:
+  replicas: 0
+  revisionHistoryLimit: 2  
+  template:
+    metadata:
+      labels:
+        run: sysbench
+    spec:
+      containers:
+      - name: sysbench
+        image: lukaszbielinski/sysbench
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "1000Mi"
+            cpu: "300m"
+          limits:
+            memory: "1000Mi"
+            cpu: "300m"
+
+      terminationGracePeriodSeconds: 1
+
+      nodeSelector:
+          zone: "be-prod"

@@ -54,7 +54,7 @@ else
                                  "index": "'$INDEX'",
                                  "shard": '$SHARD',
                                  "node": "'$NODE'",
-                                 "allow_primary": true
+                                 "allow_primary": false
                            }
                          }
                      ]

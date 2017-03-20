@@ -1,0 +1,34 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: curator
+  namespace: logging
+spec:
+  replicas: 0
+  revisionHistoryLimit: 2
+  template:
+    metadata:
+      labels:
+        run: curator
+    spec:
+      containers:
+      - name: curator
+        image:  lukaszbielinski/curator-cron:3.5_6
+        imagePullPolicy: Always
+        env:
+        - name: ELASTICSEARCH_HOST
+          value: "elasticsearch.logging"
+        - name: TTL
+          value: "7"
+        - name: TTLW
+          value: "2"
+      #   resources:
+      #     limits:
+      #       cpu: 500m
+      #       memory: "700Mi"
+      #     requests:
+      #       cpu: 50m
+      #       memory: 50Mi
+      #
+      nodeSelector:
+          zone: "be-prod"

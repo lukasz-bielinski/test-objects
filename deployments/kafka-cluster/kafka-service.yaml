@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: lb-kafka
+  namespace: kafka-cluster
+  labels:
+    app: kafka
+spec:
+  ports:
+  - port: 9092
+    name: kafka-port
+    targetPort: 9092
+    protocol: TCP
+  selector:
+    app: kafka
+
+  externalIPs:
+    - "172.16.239.71"
+#
