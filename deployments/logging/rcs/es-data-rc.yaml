@@ -100,8 +100,9 @@ spec:
       terminationGracePeriodSeconds: 300
       volumes:
       - name: storage
-        hostPath:
-            path: /var/lib/docker/elastic-data
+        emptyDir: {}
+        # hostPath:
+        #     path: /var/lib/docker/elastic-data
       - name: hooks
         secret:
           secretName: hooks
