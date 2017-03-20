@@ -7,7 +7,7 @@ metadata:
     k8s-app: kibana-logging
     version: v1
 spec:
-  replicas: 0
+  replicas: 1
   revisionHistoryLimit: 2
   strategy:
       rollingUpdate:
@@ -24,11 +24,11 @@ spec:
         imagePullPolicy: Always
         resources:
                 requests:
-                  cpu: 1000m
-                  memory: 3000Mi
+                  # cpu: 1000m
+                  memory: 400Mi
                 limits:
-                  cpu: 2500m
-                  memory: 3000Mi
+                  # cpu: 2500m
+                  memory: 400Mi
 
         env:
         - name: "ELASTICSEARCH_URL"
@@ -36,7 +36,7 @@ spec:
         - name: ELASTICSEARCH_HOST
           value: "elasticsearch.logging"
         - name: "NODE_OPTIONS"
-          value: "--max-old-space-size=1500"
+          value: "--max-old-space-size=200"
         - name: "KIBANA_INDEX"
           value: ".kibana-tsm-cluster"
 
@@ -72,7 +72,7 @@ spec:
         - name: kibana
           secret:
             secretName: kibana
-
-      nodeSelector:
-          zone: "be-prod"
+      # 
+      # nodeSelector:
+      #     zone: "be-prod"
 #11
