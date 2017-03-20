@@ -24,7 +24,7 @@ spec:
         - containerPort: 9092
         env:
           - name: KAFKA_HEAP_OPTS
-            value: "-Xmx2G -Xms2G"
+            value: "-Xmx1G -Xms1G"
           - name: ENABLE_AUTO_EXTEND
             value: "true"
           - name: KAFKA_RESERVED_BROKER_MAX_ID

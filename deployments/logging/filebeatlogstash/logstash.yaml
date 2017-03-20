@@ -20,11 +20,11 @@ spec:
       - name: logstash
         image: quay.io/pires/docker-logstash:5.1.2
         command: ["/logstash/bin/logstash", "--quiet", "-f", "/etc/logstash/logstash.yml"]
-        resources:
-          requests:
-            cpu: 1000m
-          limits:
-            cpu: 1000m
+        # resources:
+        #   requests:
+        #     cpu: 1000m
+        #   limits:
+        #     cpu: 1000m
 
         ports:
         - containerPort: 5044
