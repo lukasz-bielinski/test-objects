@@ -1,8 +1,10 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: simple-logger
+  name: logger
   namespace: simple-logger
+  labels:
+    k8s-app: logger
 spec:
   replicas: 1
   revisionHistoryLimit: 2
@@ -12,9 +14,9 @@ spec:
   template:
     metadata:
       labels:
-
+        k8s-app: logger
     spec:
       containers:
-      - name: simple-logger
+      - name: logger
         image: lukaszbielinski/simple-logger-app:0.0.2-SNAPSHOT
         imagePullPolicy: Always
