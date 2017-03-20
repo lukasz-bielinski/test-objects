@@ -48,8 +48,8 @@ spec:
       #     zone: "be-prod"
 
 
-##usr/bin/kafka-consumer-offset-checker --group flume --topic testf --zookeeper zoo1.kafka-cluster:2181,zoo2.kafka-cluster:2181,zoo3.kafka-cluster:2181
-##/opt/kafka_2.11-0.10.0.1/bin/kafka-console-consumer.sh --zookeeper zoo1.kafka-cluster:2181,zoo2.kafka-cluster:2181,zoo3.kafka-cluster:2181 --from-beginning --topic testf
+##/opt/kafka_2.11-0.10.0.1/bin/kafka-consumer-offset-checker.sh --group flume --topic k8slogstsm --zookeeper zoo1.kafka-cluster:2181,zoo2.kafka-cluster:2181,zoo3.kafka-cluster:2181
+##/opt/kafka_2.11-0.10.0.1/bin/kafka-console-consumer.sh --zookeeper zoo1.kafka-cluster:2181,zoo2.kafka-cluster:2181,zoo3.kafka-cluster:2181 --from-beginning --topic k8slogstsm
 ##/opt/kafka_2.11-0.10.0.1/bin/kafka-topics.sh --create --replication-factor 2 --partitions 1 --topic test3 --zookeeper zoo1.kafka-cluster:2181,zoo2.kafka-cluster:2181,zoo3.kafka-cluster:2181
 ##/opt/kafka_2.11-0.10.0.1/bin/kafka-topics.sh --list --zookeeper zoo1.kafka-cluster:2181,zoo2.kafka-cluster:2181,zoo3.kafka-cluster:2181
 ##/opt/kafka_2.11-0.10.0.1/bin/kafka-topics.sh  --zookeeper zoo1.kafka-cluster:2181,zoo2.kafka-cluster:2181,zoo3.kafka-cluster:2181 --delete --topic your_topic_name
