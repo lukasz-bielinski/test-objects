@@ -4,7 +4,7 @@ metadata:
   name: nginx-1
   namespace: default
 spec:
-  replicas: 0
+  replicas: 1
   strategy:
       rollingUpdate:
         maxUnavailable: 0
@@ -28,11 +28,11 @@ spec:
         - containerPort: 80
           name: http
           protocol: TCP
-        volumeMounts:
-        # - name: mypd
-        #   mountPath: /mypd
-        - name: hooks
-          mountPath: /hooks
+        # volumeMounts:
+        # # - name: mypd
+        # #   mountPath: /mypd
+        # - name: hooks
+        #   mountPath: /hooks
         lifecycle:
           preStop:
             exec:
@@ -52,12 +52,12 @@ spec:
           timeoutSeconds: 5
 
 
-      volumes:
-      - name: secr
-        emptyDir: {}
-      - name: hooks
-        secret:
-          secretName: hooks
+      # volumes:
+      # - name: secr
+      #   emptyDir: {}
+      # - name: hooks
+      #   secret:
+      #     secretName: hooks
       # - name: mypd
       #   persistentVolumeClaim:
       #     claimName: nginx-1
@@ -74,7 +74,7 @@ metadata:
   namespace: default
 spec:
   externalIPs:
-  - 192.168.1.121
+  - 192.168.1.130
   ports:
   - port: 80
     protocol: TCP
