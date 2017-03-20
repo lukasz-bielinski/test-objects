@@ -31,10 +31,10 @@ spec:
         resources:
                 requests:
                   cpu: 10m
-                  memory: 512Mi
+                  memory: 1024Mi
                 limits:
                   cpu: 7000m
-                  memory: 512Mi
+                  memory: 1024Mi
 
         env:
         - name: KUBERNETES_CA_CERTIFICATE_FILE
@@ -52,7 +52,7 @@ spec:
         - name: KUBERNETES_TRUST_CERTIFICATES
           value: "true"
         - name: ES_HEAP_SIZE
-          value: "250m"
+          value: "512m"
         - name: "NUMBER_OF_MASTERS"
           value: "2"
         - name: "NUMBER_OF_REPLICAS"
