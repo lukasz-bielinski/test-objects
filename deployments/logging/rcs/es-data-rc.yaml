@@ -7,7 +7,7 @@ metadata:
     component: elasticsearch
     role: data
 spec:
-  replicas: 4
+  replicas: 0
   revisionHistoryLimit: 2
   strategy:
       rollingUpdate:
@@ -31,10 +31,10 @@ spec:
         resources:
                 requests:
                   cpu: 10m
-                  memory: 1000Mi
+                  memory: 512Mi
                 limits:
                   cpu: 7000m
-                  memory: 1000Mi
+                  memory: 512Mi
 
         env:
         - name: KUBERNETES_CA_CERTIFICATE_FILE
@@ -52,7 +52,7 @@ spec:
         - name: KUBERNETES_TRUST_CERTIFICATES
           value: "true"
         - name: ES_HEAP_SIZE
-          value: "500m"
+          value: "250m"
         - name: "NUMBER_OF_MASTERS"
           value: "2"
         - name: "NUMBER_OF_REPLICAS"
