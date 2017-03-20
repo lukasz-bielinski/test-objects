@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: infra
+#
+# ------
+#
+# apiVersion: v1
+# kind: ResourceQuota
+# metadata:
+#   name: compute-resources
+#   namespace: ns-a
+# spec:
+#   hard:
+#     cpu: "1"
+#     requests.cpu: "1"
+#     memory: "1Gi"
+#     requests.memory: 1Gi
+
+
+
+##
