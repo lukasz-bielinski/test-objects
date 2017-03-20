@@ -79,13 +79,13 @@ spec:
         livenessProbe:
           tcpSocket:
             port: 9300
-          initialDelaySeconds: 300
+          initialDelaySeconds: 30
           timeoutSeconds: 5
 
         readinessProbe:
           tcpSocket:
               port: 9300
-          initialDelaySeconds: 300
+          initialDelaySeconds: 30
           timeoutSeconds: 5
 
         volumeMounts:
@@ -97,7 +97,7 @@ spec:
       nodeSelector:
         elastic: data
 
-      terminationGracePeriodSeconds: 300
+      terminationGracePeriodSeconds: 10
       volumes:
       - name: storage
         emptyDir: {}

@@ -7,7 +7,7 @@ metadata:
     component: elasticsearch
     role: master
 spec:
-  replicas: 3
+  replicas: 0
   revisionHistoryLimit: 2
   strategy:
       rollingUpdate:
@@ -79,13 +79,13 @@ spec:
         livenessProbe:
           tcpSocket:
             port: 9300
-          initialDelaySeconds: 60
+          initialDelaySeconds: 30
           timeoutSeconds: 5
 
         readinessProbe:
           tcpSocket:
               port: 9300
-          initialDelaySeconds: 60
+          initialDelaySeconds: 30
           timeoutSeconds: 5
 
         volumeMounts:
@@ -94,7 +94,7 @@ spec:
         - name: hooks
           mountPath: /hooks
 
-      terminationGracePeriodSeconds: 60
+      terminationGracePeriodSeconds: 10
       volumes:
         - name: storage
           emptyDir: {}

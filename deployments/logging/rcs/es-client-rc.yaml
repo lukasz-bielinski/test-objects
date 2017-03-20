@@ -7,7 +7,7 @@ metadata:
     component: elasticsearch
     role: client
 spec:
-  replicas: 2
+  replicas: 0
   revisionHistoryLimit: 2
   strategy:
       rollingUpdate:
@@ -89,16 +89,16 @@ spec:
         livenessProbe:
           tcpSocket:
             port: 9200
-          initialDelaySeconds: 420
+          initialDelaySeconds: 30
           timeoutSeconds: 5
 
         readinessProbe:
           tcpSocket:
               port: 9200
-          initialDelaySeconds: 420
+          initialDelaySeconds: 30
           timeoutSeconds: 5
 
-      terminationGracePeriodSeconds: 60
+      terminationGracePeriodSeconds: 10
       volumes:
       - name: storage
         emptyDir: {}
