@@ -2,19 +2,19 @@ apiVersion: extensions/v1beta1
 kind: DaemonSet
 metadata:
   namespace: infra
-  name: vip-10-122-147-20
+  name: vip-192-168-1-130
   labels:
-    app-name: vip-10-122-147-20
+    app-name: vip-192-168-1-130
 
 spec:
   template:
     metadata:
       labels:
-        name: vip-10-122-147-20
+        name: vip-192-168-1-130
 
     spec:
-      nodeSelector:
-        zone: frontend
+      # nodeSelector:
+      #   zone: frontend
       dnsPolicy: ClusterFirst
       hostNetwork: true
       restartPolicy: Always
@@ -35,15 +35,15 @@ spec:
               memory: 48Mi
           env:
             - name: VIP
-              value: "10.122.147.20"
+              value: "192.168.1.130"
             - name: MASK
               value: "32"
             - name: VROUTERID
-              value: "20"
+              value: "130"
             - name: STATE
               value: "MASTER"
             - name: INTERFACE
-              value: "eth0"
+              value: "eth1"
             - name: PRIORITY
               value: "100"
             - name: ADVERT
@@ -70,4 +70,4 @@ spec:
             path: /lib/modules
 
 
-###            
+###
