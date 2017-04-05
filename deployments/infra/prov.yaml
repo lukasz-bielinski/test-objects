@@ -48,7 +48,7 @@ spec:
         - name: DEPLOYMENT_DIR
         - name: PROV_TYPE
           value: generic
-        image: lukaszbielinski/kubectl-image:0.28-kubectl-lock
+        image: lukaszbielinski/kubectl-image:0.29.4
         imagePullPolicy: Always
         name: prov
         resources:
