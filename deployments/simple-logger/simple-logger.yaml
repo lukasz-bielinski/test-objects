@@ -6,7 +6,7 @@ metadata:
   labels:
     k8s-app: logger
 spec:
-  replicas: 1
+  replicas: 0
   revisionHistoryLimit: 2
   strategy:
       rollingUpdate:
