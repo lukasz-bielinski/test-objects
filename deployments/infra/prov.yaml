@@ -1,0 +1,75 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    run: provdeployments
+  name: provisioner-deployments
+  namespace: provisioners
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: provdeployments
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        run: provdeployments
+    spec:
+      containers:
+      - env:
+        - name: GIT_SYNC_REPO
+          value: git@github.com:lukasz-bielinski/test.git
+        - name: GIT_SYNC_DEST
+          value: /git
+        - name: GIT_PULL_TYPE
+          value: AUTO
+        image: lukaszbielinski/git-sync:mod4
+        imagePullPolicy: Always
+        name: git-sync
+        resources:
+          limits:
+            cpu: 50m
+            memory: 150Mi
+          requests:
+            cpu: 10m
+            memory: 10Mi
+        terminationMessagePath: /dev/termination-log
+        volumeMounts:
+        - mountPath: /git
+          name: markdown
+        - mountPath: /root/.ssh/klucze
+          name: klucze
+      - env:
+        - name: DEPLOYMENT_DIR
+        - name: PROV_TYPE
+          value: generic
+        image: lukaszbielinski/kubectl-image:0.28-kubectl-lock
+        imagePullPolicy: Always
+        name: prov
+        resources:
+          limits:
+            cpu: 100m
+            memory: 150Mi
+          requests:
+            cpu: 50m
+            memory: 50Mi
+        terminationMessagePath: /dev/termination-log
+        volumeMounts:
+        - mountPath: /src
+          name: markdown
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      securityContext: {}
+      terminationGracePeriodSeconds: 2
+      volumes:
+      - emptyDir: {}
+        name: markdown
+      - name: klucze
+        secret:
+          defaultMode: 420
+          secretName: klucze
