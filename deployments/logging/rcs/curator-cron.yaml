@@ -4,7 +4,7 @@ metadata:
   name: curator
   namespace: logging
 spec:
-  replicas: 1
+  replicas: 0
   revisionHistoryLimit: 2
   template:
     metadata:
