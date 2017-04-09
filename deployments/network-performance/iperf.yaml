@@ -1,0 +1,30 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    run: iperf
+  name: iperf
+  namespace: network-performance
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: iperf
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        run: iperf
+    spec:
+      containers:
+      - image: networkstatic/iperf3
+        command: ["iperf", "-s"]
+        imagePullPolicy: Always
+        name: iperf
+        ports:
+        - containerPort: 5201
+          protocol: TCP
