@@ -43,7 +43,7 @@ spec:
             - name: STATE
               value: "MASTER"
             - name: INTERFACE
-              value: "eth1"
+              value: "ens3"
             - name: PRIORITY
               value: "100"
             - name: ADVERT
