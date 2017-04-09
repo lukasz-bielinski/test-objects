@@ -28,5 +28,7 @@ spec:
         ports:
         - containerPort: 5201
           protocol: TCP
+        - containerPort: 12865
+          protocol: TCP
 
       terminationGracePeriodSeconds: 1
