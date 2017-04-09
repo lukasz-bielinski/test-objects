@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - image: networkstatic/iperf3
-        command: ["iperf", "-s"]
+        command: ["iperf3", "-s"]
         imagePullPolicy: Always
         name: iperf
         ports:
