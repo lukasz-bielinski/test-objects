@@ -62,6 +62,18 @@ spec:
         volumeMounts:
         - mountPath: /src
           name: markdown
+      - name: prov-ns
+        image: lukaszbielinski/kubectl-image:0.29.4
+        env:
+        - name: PROV_TYPE
+          value: quota
+        - name: NS_DIR
+          value: namespaces
+        volumeMounts:
+        - name: markdown
+          mountPath: /src
+
+
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       securityContext: {}
