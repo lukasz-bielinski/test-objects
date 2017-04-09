@@ -1,0 +1,38 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    run: netperf-tester-host
+  name: netperf-tester-host
+  namespace: network-performance
+
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      run: netperf-tester-host
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: netperf-tester-host
+    spec:
+      containers:
+      - image: paultiplady/netserver:ubuntu.2
+        imagePullPolicy: Always
+        name: netperf-tester-host
+        ports:
+        - containerPort: 12865
+          hostPort: 65530
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      securityContext: {}
+      terminationGracePeriodSeconds: 1
