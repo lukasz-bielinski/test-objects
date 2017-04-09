@@ -21,7 +21,7 @@ spec:
         run: iperf-client
     spec:
       containers:
-      - image: networkstatic/iperf3
+      - image: lukaszbielinski/network-performance-docker
         command: ["iperf3", "-s"]
         imagePullPolicy: Always
         name: iperf-client
