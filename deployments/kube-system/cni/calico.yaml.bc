@@ -6,7 +6,7 @@ metadata:
   namespace: kube-system
 data:
   # Configure this with the location of your etcd cluster.
-  etcd_endpoints: "http://192.168.1.145:2379"
+  etcd_endpoints: "http://192.168.1.145:2379,http://192.168.1.146:2379,http://192.168.1.147:2379"
 
   # Configure the Calico backend to use.
   calico_backend: "bird"
@@ -26,7 +26,7 @@ data:
         },
         "policy": {
             "type": "k8s",
-            "k8s_api_root": "https://__KUBERNETES_SERVICE_HOST__:__KUBERNETES_SERVICE_PORT__",
+            "k8s_api_root": "https://192.168.1.150",
             "k8s_auth_token": "__SERVICEACCOUNT_TOKEN__"
         },
         "kubernetes": {
@@ -264,7 +264,7 @@ spec:
             # The location of the Kubernetes API.  Use the default Kubernetes
             # service for API access.
             - name: K8S_API
-              value: "https://kubernetes.default:443"
+              value: "https://192.168.1.150"
             # Since we're running in the host namespace and might not have KubeDNS
             # access, configure the container's /etc/hosts to resolve
             # kubernetes.default to the correct service clusterIP.
