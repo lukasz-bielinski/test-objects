@@ -22,8 +22,8 @@ spec:
 
       containers:
         - name: keepalived-vip
-          # image: oberthur/docker-keepalived:20160917
-          image: lukaszbielinski/ing:02
+          image: oberthur/docker-keepalived:20160917
+          #image: lukaszbielinski/ing:02
           imagePullPolicy: Always
           securityContext:
             privileged: true
