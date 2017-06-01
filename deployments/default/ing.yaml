@@ -1,0 +1,46 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: ing
+  namespace: default
+spec:
+  replicas: 1
+  strategy:
+      rollingUpdate:
+        maxUnavailable: 0
+        maxSurge: 1
+  template:
+    metadata:
+      labels:
+        run: ing
+    spec:
+      containers:
+      - name: ing
+        image: lukaszbielinski/ing:03
+        ports:
+        - containerPort: 1936
+          name: http
+          protocol: TCP
+
+
+---
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: ing
+  name: ing
+  namespace: default
+spec:
+  externalIPs:
+  - 192.168.1.130
+  ports:
+  - port: 1936
+    protocol: TCP
+    targetPort: 1936
+  selector:
+    run: ing
+
+###
