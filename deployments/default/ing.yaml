@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: ing
-        image: lukaszbielinski/ing:09
+        image: lukaszbielinski/ing:1
         ports:
         - containerPort: 1936
           name: http
