@@ -17,6 +17,7 @@ spec:
       containers:
       - name: ing
         image: lukaszbielinski/ing:3
+        imagePullPolicy: Always
         ports:
         - containerPort: 1936
           name: http
