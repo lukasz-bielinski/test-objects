@@ -4,7 +4,7 @@ metadata:
   name: ing
   namespace: default
 spec:
-  replicas: 1
+  replicas: 0
   strategy:
       rollingUpdate:
         maxUnavailable: 0
