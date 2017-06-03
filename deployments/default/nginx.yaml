@@ -4,7 +4,7 @@ metadata:
   name: nginx-1
   namespace: default
 spec:
-  replicas: 18
+  replicas: 17
   strategy:
       rollingUpdate:
         maxUnavailable: 0
