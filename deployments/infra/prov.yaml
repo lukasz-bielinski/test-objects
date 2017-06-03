@@ -72,7 +72,16 @@ spec:
         volumeMounts:
         - name: markdown
           mountPath: /src
-
+      - name: prov-secrets
+        image: lukaszbielinski/kubectl-image:0.29.4
+        env:
+        - name: PROV_TYPE
+          value: secrets
+        - name: SECRETS_DIR
+          value: secrets
+        volumeMounts:
+        - name: markdown
+          mountPath: /src
 
       dnsPolicy: ClusterFirst
       restartPolicy: Always
