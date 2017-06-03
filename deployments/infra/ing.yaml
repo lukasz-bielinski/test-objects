@@ -51,21 +51,21 @@ spec:
               value: "5"
             - name: AUTHPASS
               value: sdovn12434s2wnwd
-          volumeMounts:
-          - mountPath: /sys
-            name: sys
-          - mountPath: /sbin/modprobe
-            name: modprobe
-          - mountPath: /lib/modules
-            name: modules
-
-      volumes:
-      - name: sys
-        hostPath:
-            path: /sys
-      - name: modprobe
-        hostPath:
-            path: /sbin/modprobe
-      - name: modules
-        hostPath:
-            path: /lib/modules
+      #     volumeMounts:
+      #     - mountPath: /sys
+      #       name: sys
+      #     - mountPath: /sbin/modprobe
+      #       name: modprobe
+      #     - mountPath: /lib/modules
+      #       name: modules
+      #
+      # volumes:
+      # - name: sys
+      #   hostPath:
+      #       path: /sys
+      # - name: modprobe
+      #   hostPath:
+      #       path: /sbin/modprobe
+      # - name: modules
+      #   hostPath:
+      #       path: /lib/modules
