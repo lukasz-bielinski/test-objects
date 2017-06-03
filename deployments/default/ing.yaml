@@ -23,6 +23,13 @@ spec:
         # - containerPort: 1936
         #   name: http
         #   protocol: TCP
+        resources:
+          requests:
+            memory: "100Mi"
+            cpu: "1m"
+          limits:
+            memory: "100Mi"
+            cpu: "2000m"
 #
 
 ---
