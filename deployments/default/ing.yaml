@@ -17,13 +17,13 @@ spec:
       hostNetwork: true
       containers:
       - name: ing
-        image: lukaszbielinski/ing:3.11
+        image: lukaszbielinski/ing:3.12
         imagePullPolicy: Always
         # ports:
         # - containerPort: 1936
         #   name: http
         #   protocol: TCP
-
+#
 
 ---
 
