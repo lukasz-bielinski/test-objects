@@ -29,17 +29,17 @@ spec:
         - name: GIT_PULL_TYPE
           value: AUTO
         - name: GIT_SYNC_WAIT
-          value: 5  
+          value: 5
         image: lukaszbielinski/git-sync:0.7.2
         imagePullPolicy: Always
         name: git-sync
-        resources:
-          limits:
-            cpu: 50m
-            memory: 150Mi
-          requests:
-            cpu: 10m
-            memory: 10Mi
+        # resources:
+        #   limits:
+        #     cpu: 50m
+        #     memory: 150Mi
+        #   requests:
+        #     cpu: 10m
+        #     memory: 10Mi
         terminationMessagePath: /dev/termination-log
         volumeMounts:
         - mountPath: /git
