@@ -41,14 +41,8 @@ spec:
               value: "32"
             - name: VROUTERID
               value: "131"
-            - name: STATE
-              value: "BACKUP"
             - name: INTERFACE
               value: "eth0"
-            - name: PRIORITY
-              value: "100"
-            - name: ADVERT
-              value: "5"
             - name: AUTHPASS
               value: sdovn12434s2wnwd
           volumeMounts:
