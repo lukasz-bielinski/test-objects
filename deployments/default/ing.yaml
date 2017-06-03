@@ -19,30 +19,30 @@ spec:
       - name: ing
         image: lukaszbielinski/ing:3.5-stable
         imagePullPolicy: Always
-        ports:
-        - containerPort: 1936
-          name: http
-          protocol: TCP
+        # ports:
+        # - containerPort: 1936
+        #   name: http
+        #   protocol: TCP
 
 
 ---
 
 
-apiVersion: v1
-kind: Service
-metadata:
-  labels:
-    run: ing
-  name: ing
-  namespace: default
-spec:
-  externalIPs:
-  - 192.168.1.130
-  ports:
-  - port: 1936
-    protocol: TCP
-    targetPort: 1936
-  selector:
-    run: ing
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   labels:
+#     run: ing
+#   name: ing
+#   namespace: default
+# spec:
+#   externalIPs:
+#   - 192.168.1.130
+#   ports:
+#   - port: 1936
+#     protocol: TCP
+#     targetPort: 1936
+#   selector:
+#     run: ing
 
 ###
