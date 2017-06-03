@@ -9,12 +9,12 @@ spec:
       rollingUpdate:
         maxUnavailable: 0
         maxSurge: 1
-  hostNetwork: true
   template:
     metadata:
       labels:
         run: ing
     spec:
+      hostNetwork: true
       containers:
       - name: ing
         image: lukaszbielinski/ing:3.5-stable
