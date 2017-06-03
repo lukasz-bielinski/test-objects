@@ -16,7 +16,8 @@ spec:
     spec:
       containers:
       - name: ing
-        image: lukaszbielinski/ing:3.5-stable 
+        hostNetwork: true
+        image: lukaszbielinski/ing:3.5-stable
         imagePullPolicy: Always
         ports:
         - containerPort: 1936
