@@ -46,9 +46,9 @@ spec:
             - name: AUTHPASS
               value: sdovn12434s2wnwd
             - name: SERVICE
-              value: kubernetes-dashboard
+              value: nginx-1
             - name: NAMESPACE
-              value: kube-system
+              value: defaultco
 
           volumeMounts:
           - mountPath: /sys
