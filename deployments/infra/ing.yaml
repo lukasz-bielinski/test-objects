@@ -48,7 +48,7 @@ spec:
             - name: SERVICE
               value: nginx-1
             - name: NAMESPACE
-              value: defaultco
+              value: default
 
           volumeMounts:
           - mountPath: /sys
