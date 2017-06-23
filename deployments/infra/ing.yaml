@@ -22,7 +22,7 @@ spec:
 
       containers:
         - name: vip-ing
-          image: lukaszbielinski/ing:3.22
+          image: lukaszbielinski/ing:3.23
           #image: lukaszbielinski/ing:02
           imagePullPolicy: Always
           securityContext:
@@ -45,6 +45,11 @@ spec:
               value: "eth0"
             - name: AUTHPASS
               value: sdovn12434s2wnwd
+            - name: SERVICE
+              value: kubernetes-dashboard
+            - name: NAMESPACE
+              value: kube-system
+          
           volumeMounts:
           - mountPath: /sys
             name: sys
