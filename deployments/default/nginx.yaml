@@ -14,10 +14,10 @@ spec:
       labels:
         run: nginx-1
     spec:
-      terminationGracePeriodSeconds: 100      
+      terminationGracePeriodSeconds: 100
       containers:
       - name: test
-        image: nginx:1.13-alpine
+        image: nginx:1.13.1-alpine
         # resources:
         #   requests:
         #     memory: "1Mi"
