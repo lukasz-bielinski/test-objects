@@ -79,9 +79,9 @@ spec:
   - name: http
     port: 80
     protocol: TCP
-  - name: https
-    port: 444
-    protocol: TCP
+  # - name: https
+  #   port: 444
+  #   protocol: TCP
 
   selector:
     run: nginx-1
