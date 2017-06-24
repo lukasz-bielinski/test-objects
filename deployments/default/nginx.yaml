@@ -14,6 +14,7 @@ spec:
       labels:
         run: nginx-1
     spec:
+      terminationGracePeriodSeconds: 100      
       containers:
       - name: test
         image: nginx:1.13-alpine
@@ -37,7 +38,7 @@ spec:
           preStop:
             exec:
               # SIGTERM triggers a quick exit; gracefully terminate instead
-              command: ["/usr/sbin/nginx","-s","quit"]
+              command: ["/usr/sbin/nginx","-s","winch"]
 
         livenessProbe:
           tcpSocket:
