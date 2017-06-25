@@ -58,7 +58,7 @@ spec:
       #   emptyDir: {}
       - name: www
         secret:
-          secretName: www1
+          secretName: www
       # - name: mypd
       #   persistentVolumeClaim:
       #     claimName: nginx-1
