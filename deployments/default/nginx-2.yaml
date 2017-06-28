@@ -17,7 +17,9 @@ spec:
       terminationGracePeriodSeconds: 100
       containers:
       - name: test
-        image: lukaszbielinski/nginx81:latest
+        # image: lukaszbielinski/nginx80:latest
+        image: nginx:1.13-alpine
+
         # resources:
         #   requests:
         #     memory: "1Mi"
@@ -26,7 +28,7 @@ spec:
         #     memory: "100Mi"
         #     cpu: "2000m"
         ports:
-        - containerPort: 81
+        - containerPort: 80
           name: http
           protocol: TCP
         volumeMounts:
@@ -42,13 +44,13 @@ spec:
 
         livenessProbe:
           tcpSocket:
-            port: 81
+            port: 80
           initialDelaySeconds: 30
           timeoutSeconds: 1
 
         readinessProbe:
           tcpSocket:
-              port: 81
+              port: 80
           initialDelaySeconds: 30
           timeoutSeconds: 1
 
@@ -77,9 +79,9 @@ spec:
   # externalIPs:
   # - 192.168.1.130
   ports:
-  - port: 81
+  - port: 80
     protocol: TCP
-    targetPort: 81
+    targetPort: 80
 
   selector:
     run: nginx-2
