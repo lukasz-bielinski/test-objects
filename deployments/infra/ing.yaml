@@ -22,7 +22,7 @@ spec:
 
       containers:
         - name: vip-ing
-          image: lukaszbielinski/ing:3.37
+          image: lukaszbielinski/docker-ingress-controller-haproxy:1.0
           #image: lukaszbielinski/ing:02
           imagePullPolicy: Always
           securityContext:
@@ -46,7 +46,7 @@ spec:
             - name: AUTHPASS
               value: sdovn12434s2wnwd
             - name: SERVICE
-              value: nginx-1
+              value: nginx-1 nginx-2
             - name: NAMESPACE
               value: default
 

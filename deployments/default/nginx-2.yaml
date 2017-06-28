@@ -1,10 +1,10 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: nginx-1
+  name: nginx-2
   namespace: default
 spec:
-  replicas: 5
+  replicas: 2
   strategy:
       rollingUpdate:
         maxUnavailable: 0
@@ -12,7 +12,7 @@ spec:
   template:
     metadata:
       labels:
-        run: nginx-1
+        run: nginx-2
     spec:
       terminationGracePeriodSeconds: 100
       containers:
@@ -58,10 +58,10 @@ spec:
       #   emptyDir: {}
       - name: www
         secret:
-          secretName: www
+          secretName: www2
       # - name: mypd
       #   persistentVolumeClaim:
-      #     claimName: nginx-1
+      #     claimName: nginx-2
 
 ---
 
@@ -70,19 +70,16 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    run: nginx-1
-  name: nginx-1
+    run: nginx-2
+  name: nginx-2
   namespace: default
 spec:
   # externalIPs:
   # - 192.168.1.130
   ports:
-  - name: http
-    port: 80
+  - port: 81
     protocol: TCP
-  - name: https
-    port: 444
-    protocol: TCP
+    targetPort: 80
 
   selector:
-    run: nginx-1
+    run: nginx-2
