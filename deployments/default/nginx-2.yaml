@@ -81,7 +81,7 @@ spec:
   ports:
   - port: 80
     protocol: TCP
-    targetPort: 80
+    targetPort: 8811
 
   selector:
     run: nginx-2
