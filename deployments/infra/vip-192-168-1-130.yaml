@@ -51,6 +51,10 @@ spec:
               value: "5"
             - name: AUTHPASS
               value: sdovn12434sfwnwd
+            - name: SERVICE
+              value: kubernetes-dashboard
+            - name: NAMESPACE
+              value: kube-system              
           volumeMounts:
           - mountPath: /sys
             name: sys
