@@ -1,9 +1,10 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
+
 metadata:
   name: rollerd
 spec:
-  replicas: 1
+  replicas: 0
   template:
     metadata:
       labels:
