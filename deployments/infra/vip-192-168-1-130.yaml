@@ -54,7 +54,7 @@ spec:
             - name: SERVICE
               value: kubernetes-dashboard
             - name: NAMESPACE
-              value: kube-system              
+              value: kube-system
           volumeMounts:
           - mountPath: /sys
             name: sys
@@ -73,3 +73,5 @@ spec:
       - name: modules
         hostPath:
             path: /lib/modules
+
+#
