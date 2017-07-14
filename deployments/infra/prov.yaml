@@ -1,3 +1,10 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: provisioners
+
+---
+
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
