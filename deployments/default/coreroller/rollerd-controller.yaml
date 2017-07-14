@@ -4,7 +4,7 @@ metadata:
   name: rollerd
   namespace: default
 spec:
-  replicas: 0
+  replicas: 1
   template:
     metadata:
       labels:
