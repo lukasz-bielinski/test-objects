@@ -50,7 +50,7 @@ spec:
         - name: DEPLOYMENT_DIR
         - name: PROV_TYPE
           value: generic
-        image: lukaszbielinski/kubectl-image:0.29.4
+        image: lukaszbielinski/kubectl-image:0.30.2
         imagePullPolicy: Always
         name: prov
         # resources:
@@ -65,7 +65,7 @@ spec:
         - mountPath: /src
           name: markdown
       - name: prov-ns
-        image: lukaszbielinski/kubectl-image:0.29.4
+        image: lukaszbielinski/kubectl-image:0.30.2
         env:
         - name: PROV_TYPE
           value: quota
@@ -75,7 +75,7 @@ spec:
         - name: markdown
           mountPath: /src
       - name: prov-secrets
-        image: lukaszbielinski/kubectl-image:0.29.4
+        image: lukaszbielinski/kubectl-image:0.30.2
         env:
         - name: PROV_TYPE
           value: secrets
