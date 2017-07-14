@@ -2,8 +2,9 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: postgresql
+  namespace: default
 spec:
-  replicas: 0  
+  replicas: 0
   template:
     metadata:
       labels:
