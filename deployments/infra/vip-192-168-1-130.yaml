@@ -35,7 +35,7 @@ spec:
           #     memory: 48Mi
           env:
             - name: VIP
-              value: "192.168.2.130"
+              value: "192.168.1.130"
             - name: MASK
               value: "32"
             - name: VROUTERID
