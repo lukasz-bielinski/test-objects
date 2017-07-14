@@ -23,7 +23,6 @@ spec:
       containers:
         - name: keepalived-vip
           image: lukaszbielinski/docker-ingress-controller-haproxy
-          #image: lukaszbielinski/ing:02
           imagePullPolicy: Always
           securityContext:
             privileged: true
@@ -58,7 +57,7 @@ spec:
           volumeMounts:
           - mountPath: /sys
             name: sys
-          - mountPath: /sbin/modprobe
+          - mountPath: /usr/sbin/modprobe
             name: modprobe
           - mountPath: /lib/modules
             name: modules
@@ -69,9 +68,9 @@ spec:
             path: /sys
       - name: modprobe
         hostPath:
-            path: /sbin/modprobe
+            path: /usr/sbin/modprobe
       - name: modules
         hostPath:
             path: /lib/modules
 
-##
+#
