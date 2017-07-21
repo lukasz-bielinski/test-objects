@@ -1,0 +1,30 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: logger
+  namespace: default
+  labels:
+    k8s-app: logger
+spec:
+  replicas: 1
+  revisionHistoryLimit: 2
+  strategy:
+      rollingUpdate:
+        maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        k8s-app: logger
+    spec:
+      containers:
+      - name: logger
+        env:
+        - name: SLEEP
+          value: "1"
+        image: lukaszbielinski/simple-logger-app:0.0.2-SNAPSHOT
+        imagePullPolicy: Always
+        resources:
+                requests:
+                  memory: 1Gi
+                limits:
+                  memory: 1Gi
