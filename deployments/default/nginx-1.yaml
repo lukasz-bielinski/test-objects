@@ -5,10 +5,10 @@ metadata:
   namespace: default
 spec:
   replicas: 340
-  strategy:
-      rollingUpdate:
-        maxUnavailable: 0
-        maxSurge: 1
+ # strategy:
+ #     rollingUpdate:
+ #       maxUnavailable: 0
+ #       maxSurge: 1
   template:
     metadata:
       labels:
