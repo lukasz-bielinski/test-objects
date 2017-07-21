@@ -14,7 +14,7 @@ spec:
       labels:
         run: nginx-1
     spec:
-      terminationGracePeriodSeconds: 100
+      terminationGracePeriodSeconds: 1
       containers:
       - name: test
         image: nginx:1.12-alpine
