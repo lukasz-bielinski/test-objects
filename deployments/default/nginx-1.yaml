@@ -7,7 +7,7 @@ spec:
   replicas: 340
   strategy:
       rollingUpdate:
-        maxUnavailable: 3
+        maxUnavailable: 150
         maxSurge: 1
   template:
     metadata:
