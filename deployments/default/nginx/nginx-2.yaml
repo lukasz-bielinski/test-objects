@@ -17,8 +17,8 @@ spec:
     spec:
       terminationGracePeriodSeconds: 100
       containers:
-test9
-test9
+
+
         image: nginx:1.13.3-alpine
 
         # resources:
