@@ -5,6 +5,7 @@ metadata:
   namespace: default
 spec:
   replicas: 15
+  revisionHistoryLimit: 50    
   strategy:
       rollingUpdate:
         maxUnavailable: 5
