@@ -18,7 +18,7 @@ spec:
       terminationGracePeriodSeconds: 1
       containers:
       - name: test
-        image: nginx:1.13.3-alpine
+        image: nginx:1.12-alpine
         # resources:
         #   requests:
         #     memory: "1Mi"
