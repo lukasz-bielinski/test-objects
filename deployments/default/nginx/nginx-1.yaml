@@ -5,7 +5,7 @@ metadata:
   namespace: default
 spec:
   replicas: 15
-  revisionHistoryLimit: 50
+  revisionHistoryLimit: 50    
   strategy:
       rollingUpdate:
         maxUnavailable: 5
@@ -17,8 +17,8 @@ spec:
     spec:
       terminationGracePeriodSeconds: 1
       containers:
-
-        image: nginx:1.13-alpine
+      - name: test
+        image: nginx:1.13.3-alpine
         # resources:
         #   requests:
         #     memory: "1Mi"
