@@ -4,7 +4,7 @@ metadata:
   name: nginx-10
   namespace: default
 spec:
-  replicas: 0
+  replicas: 50
   revisionHistoryLimit: 50
   strategy:
       rollingUpdate:
