@@ -19,7 +19,7 @@ spec:
       containers:
 
 
-        image: nginx:1.12-alpine
+        image: nginx:1.13-alpine
 
         # resources:
         #   requests:
