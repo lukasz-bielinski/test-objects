@@ -4,7 +4,7 @@ metadata:
   name: nginx-1
   namespace: default
 spec:
-  replicas: 0
+  replicas: 10
   revisionHistoryLimit: 50    
   strategy:
       rollingUpdate:
@@ -18,7 +18,7 @@ spec:
       terminationGracePeriodSeconds: 1
       containers:
       - name: test
-        image: nginx:1.12-alpine
+        image: nginx:1.13-alpine
         # resources:
         #   requests:
         #     memory: "1Mi"
