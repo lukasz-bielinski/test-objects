@@ -13,7 +13,7 @@ spec:
       containers:
       - name: rollerd
         image: coreroller/rollerd:1.0.4
-        command: ["rollerd -host-coreos-packages=true -coreos-packages-path=/store -coreroller-url=http://192.168.1.135:8000"]
+        command: ["coreroller/rollerd", "-http-static-dir=/coreroller/static", "rollerd -host-coreos-packages=true", "-coreos-packages-path=/store", "-coreroller-url=http://192.168.1.135:8000"]
         volumeMounts:
          - name: store
            mountPath: /store
