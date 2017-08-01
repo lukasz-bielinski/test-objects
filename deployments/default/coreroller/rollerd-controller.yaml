@@ -13,8 +13,16 @@ spec:
       containers:
       - name: rollerd
         image: coreroller/rollerd:1.0.4
+        command: ["rollerd -host-coreos-packages=true -coreos-packages-path=/store -coreroller-url=http://192.168.1.135:8000"]
+        volumeMounts:
+         - name: store
+           mountPath: /store
         ports:
         - containerPort: 8000
         env:
         - name: COREROLLER_DB_URL
           value: postgres://postgres@postgresql:5432/coreroller?sslmode=disable
+
+      volumes:
+      - name: store
+        emptyDir: {}
