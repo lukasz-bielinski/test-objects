@@ -58,7 +58,7 @@ spec:
         - name: PROV_TYPE
           value: generic
       #  image: lukaszbielinski/kubectl-image:0.30.3-alpine
-        image: docker-release.otlabs.fr/infra/docker-kubectl-image:0.30.5
+        image: docker-snapshot.otlabs.fr/kubectl:latest
         imagePullPolicy: Always
         name: prov
         # resources:
@@ -73,7 +73,7 @@ spec:
         - mountPath: /src
           name: markdown
       - name: prov-ns
-        image: docker-release.otlabs.fr/infra/docker-kubectl-image:0.30.5
+        image: docker-snapshot.otlabs.fr/kubectl:latest
         env:
         - name: PROV_TYPE
           value: quota
@@ -83,7 +83,7 @@ spec:
         - name: markdown
           mountPath: /src
       - name: prov-configmaps
-        image: docker-release.otlabs.fr/infra/docker-kubectl-image:0.30.5
+        image: docker-snapshot.otlabs.fr/kubectl:latest
         env:
         - name: PROV_TYPE
           value: configmap
@@ -93,7 +93,7 @@ spec:
         - name: markdown
           mountPath: /src
       - name: prov-secrets
-        image: docker-release.otlabs.fr/infra/docker-kubectl-image:0.30.5
+        image: docker-snapshot.otlabs.fr/kubectl:latest
         env:
         - name: PROV_TYPE
           value: secrets
