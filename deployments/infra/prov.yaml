@@ -54,6 +54,8 @@ spec:
         - mountPath: /root/.ssh/klucze
           name: klucze
       - env:
+        - name: PROVISONING_TYPE
+          value: force          
         - name: DEPLOYMENT_DIR
         - name: PROV_TYPE
           value: generic
@@ -75,6 +77,8 @@ spec:
       - name: prov-ns
         image: docker-snapshot.otlabs.fr/kubectl:latest
         env:
+        - name: PROVISONING_TYPE
+          value: force
         - name: PROV_TYPE
           value: quota
         - name: NS_DIR
@@ -85,6 +89,8 @@ spec:
       - name: prov-configmaps
         image: docker-snapshot.otlabs.fr/kubectl:latest
         env:
+        - name: PROVISONING_TYPE
+          value: force
         - name: PROV_TYPE
           value: configmap
         - name: CONFIGMAPS_DIR
@@ -95,6 +101,8 @@ spec:
       - name: prov-secrets
         image: docker-snapshot.otlabs.fr/kubectl:latest
         env:
+        - name: PROVISONING_TYPE
+          value: force
         - name: PROV_TYPE
           value: secrets
         - name: SECRETS_DIR
