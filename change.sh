@@ -5,4 +5,4 @@ cd ../../../secrets/default
 grep -l -r "test" . | xargs sed -i 's|.*test.*|test2|g'
 
 #cd deployments/default/nginx
-#grep -l -r "replicas: " . | xargs sed -i 's|.*replicas\:.*|  replicas\: 20|g'
+  replicas: 50

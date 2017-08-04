@@ -6,7 +6,7 @@ metadata:
   name: iperf-client
   namespace: network-performance
 spec:
-  replicas: 0
+  replicas: 50
   selector:
     matchLabels:
       run: iperf-client

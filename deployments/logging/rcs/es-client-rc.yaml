@@ -7,7 +7,7 @@ metadata:
     component: elasticsearch
     role: client
 spec:
-  replicas: 0
+  replicas: 50
   revisionHistoryLimit: 2
   strategy:
       rollingUpdate:

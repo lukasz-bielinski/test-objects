@@ -6,7 +6,7 @@
 #   name: kubernetes-dashboard
 #   namespace: kube-system
 # spec:
-#   replicas: 1
+  replicas: 50
 #   strategy:
 #       rollingUpdate:
 #         maxUnavailable: 0
