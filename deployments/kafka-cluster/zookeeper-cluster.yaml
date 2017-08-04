@@ -4,7 +4,7 @@ metadata:
   name: zookeeper-deployment-1
   namespace: kafka-cluster
 spec:
-  replicas: 50
+  replicas: 0
   selector:
     matchLabels:
       app: zookeeper-1
@@ -38,7 +38,7 @@ metadata:
   name: zookeeper-deployment-2
   namespace: kafka-cluster
 spec:
-  replicas: 50
+  replicas: 0
   selector:
     matchLabels:
       app: zookeeper-2
@@ -72,7 +72,7 @@ metadata:
   name: zookeeper-deployment-3
   namespace: kafka-cluster
 spec:
-  replicas: 50
+  replicas: 0
   selector:
     matchLabels:
       app: zookeeper-3

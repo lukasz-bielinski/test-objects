@@ -13,7 +13,7 @@ metadata:
   name: provisioner-deployments
   namespace: provisioners
 spec:
-  replicas: 50
+  replicas: 1
   selector:
     matchLabels:
       run: provdeployments

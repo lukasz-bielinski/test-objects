@@ -6,7 +6,7 @@ metadata:
   labels:
     k8s-app: logstash
 spec:
-  replicas: 50
+  replicas: 0
   revisionHistoryLimit: 2
   strategy:
       rollingUpdate:

@@ -4,7 +4,7 @@ metadata:
   name: kafka-deployment
   namespace: kafka-cluster
 spec:
-  replicas: 50
+  replicas: 0
   strategy:
       rollingUpdate:
         maxUnavailable: 0

@@ -220,7 +220,7 @@
 #        {"key":"CriticalAddonsOnly", "operator":"Exists"}]
 # spec:
 #   # The policy controller can only have a single active instance.
-  replicas: 50
+#   replicas: 1
 #   strategy:
 #     type: Recreate
 #   template:
