@@ -20,7 +20,8 @@ spec:
       - name: test
         image: lukaszbielinski/amq-load:2.0
         env:
-          AMQ_ADDRESS: tcp://amq-server:61616
+          - name: AMQ_ADDRESS
+            value: tcp://amq-server:61616
 
 
 

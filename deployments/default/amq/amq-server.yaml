@@ -20,7 +20,8 @@ spec:
       - name: test
         image: lukaszbielinski/amq-test:1.0
         env:
-          ACTIVE_MQ_TRANSPORT_CONNECTOR_NAMES: OPENWIRE
+          - name: ACTIVE_MQ_TRANSPORT_CONNECTOR_NAMES
+            value: OPENWIRE
         ports:
         - containerPort: 61616
           name: http
