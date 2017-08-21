@@ -1,0 +1,47 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: amq-server
+  namespace: default
+spec:
+  replicas: 1
+  revisionHistoryLimit: 50
+  strategy:
+      rollingUpdate:
+        maxUnavailable: 5
+        maxSurge: 1
+  template:
+    metadata:
+      labels:
+        run: amq-server
+    spec:
+      terminationGracePeriodSeconds: 1
+      containers:
+      - name: test
+        image: lukaszbielinski/amq-test:1.0
+        env:
+          ACTIVE_MQ_TRANSPORT_CONNECTOR_NAMES: OPENWIRE
+        ports:
+        - containerPort: 61616
+          name: http
+          protocol: TCP
+
+
+---
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: amq-server
+  name: amq-server
+  namespace: default
+spec:
+  ports:
+  - name: http
+    port: 61616
+    protocol: TCP
+  selector:
+    run: amq-server
+#

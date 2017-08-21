@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: amq-client
+  namespace: default
+spec:
+  replicas: 1
+  revisionHistoryLimit: 50
+  strategy:
+      rollingUpdate:
+        maxUnavailable: 5
+        maxSurge: 1
+  template:
+    metadata:
+      labels:
+        run: amq-client
+    spec:
+      terminationGracePeriodSeconds: 1
+      containers:
+      - name: test
+        image: lukaszbielinski/amq-load:2.0
+        env:
+          AMQ_ADDRESS: tcp://amq-server:61616
+
+
+
+---
