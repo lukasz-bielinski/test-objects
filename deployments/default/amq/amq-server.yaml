@@ -4,7 +4,7 @@ metadata:
   name: amq-server
   namespace: default
 spec:
-  replicas: 1
+  replicas: 0
   revisionHistoryLimit: 50
   strategy:
       rollingUpdate:
