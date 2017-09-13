@@ -4,7 +4,7 @@ metadata:
   name: nginx-2
   namespace: default
 spec:
-  replicas: 3000
+  replicas: 500
   revisionHistoryLimit: 50
   strategy:
       rollingUpdate:
