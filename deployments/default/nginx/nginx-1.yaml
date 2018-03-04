@@ -4,8 +4,8 @@ metadata:
   name: nginx-1
   namespace: default
 spec:
-  replicas: 2
-  revisionHistoryLimit: 50    
+  replicas: 0
+  revisionHistoryLimit: 50
   strategy:
       rollingUpdate:
         maxUnavailable: 5
