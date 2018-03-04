@@ -1,0 +1,89 @@
+# # Please keep kube-proxy configuration in-sync with:
+# # cluster/saltbase/salt/kube-proxy/kube-proxy.manifest
+#
+# apiVersion: extensions/v1beta1
+# kind: DaemonSet
+# metadata:
+#   labels:
+#     k8s-app: kube-proxy
+#     addonmanager.kubernetes.io/mode: Reconcile
+#   name: kube-proxy
+#   namespace: kube-system
+# spec:
+#   selector:
+#     matchLabels:
+#       k8s-app: kube-proxy
+#   updateStrategy:
+#     type: RollingUpdate
+#     rollingUpdate:
+#       maxUnavailable: 10%
+#   template:
+#     metadata:
+#       labels:
+#         k8s-app: kube-proxy
+#       annotations:
+#         scheduler.alpha.kubernetes.io/critical-pod: ''
+#     spec:
+#       priorityClassName: system-node-critical
+#       hostNetwork: true
+#       # nodeSelector:
+#       #   beta.kubernetes.io/kube-proxy-ds-ready: "true"
+#       tolerations:
+#       - operator: "Exists"
+#         effect: "NoExecute"
+#       - operator: "Exists"
+#         effect: "NoSchedule"
+#       containers:
+#       - name: kube-proxy
+#         image: gcr.io/google_containers/kube-proxy-amd64:v1.9.3
+#         resources:
+#           requests:
+#             cpu: 100m
+#         command:
+#         - /bin/sh
+#         - -c
+#         - kube-proxy 10.2.0.0/24 --resource-container="" --oom-score-adj=-998 --kubeconfig=/etc/kubernetes/worker-kubeconfig.yaml 1>>/var/log/kube-proxy.log 2>&1
+#         env:
+#         - name: KUBERNETES_SERVICE_HOST
+#           value: https://192.168.1.150:443
+#         securityContext:
+#           privileged: true
+#         volumeMounts:
+#         - mountPath: /var/log
+#           name: varlog
+#           readOnly: false
+#         - mountPath: /run/xtables.lock
+#           name: xtables-lock
+#           readOnly: false
+#         - mountPath: /lib/modules
+#           name: lib-modules
+#           readOnly: true
+#         - mountPath: /etc/ssl/certs
+#           name: "ssl-certs"
+#         - mountPath: /etc/kubernetes/worker-kubeconfig.yaml
+#           name: "kubeconfig"
+#           readOnly: true
+#         - mountPath: /etc/kubernetes/ssl
+#           name: "etc-kube-ssl"
+#           readOnly: true
+#       volumes:
+#       - name: varlog
+#         hostPath:
+#           path: /var/log
+#       - name: xtables-lock
+#         hostPath:
+#           path: /run/xtables.lock
+#           type: FileOrCreate
+#       - name: lib-modules
+#         hostPath:
+#           path: /lib/modules
+#       - name: "ssl-certs"
+#         hostPath:
+#           path: "/usr/share/ca-certificates"
+#       - name: "kubeconfig"
+#         hostPath:
+#           path: "/etc/kubernetes/worker-kubeconfig.yaml"
+#       - name: "etc-kube-ssl"
+#         hostPath:
+#           path: "/etc/kubernetes/ssl"
+#       serviceAccountName: kube-proxy
