@@ -42,7 +42,7 @@
 #         command:
 #         - /bin/sh
 #         - -c
-#         - kube-proxy 10.2.0.0/24 --resource-container="" --oom-score-adj=-998 --kubeconfig=/etc/kubernetes/worker-kubeconfig.yaml 1>>/var/log/kube-proxy.log 2>&1
+#         - kube-proxy  --write-config-to=/var/log/1 1>>/var/log/kube-proxy.log 2>&1
 #         env:
 #         - name: KUBERNETES_SERVICE_HOST
 #           value: https://192.168.1.150:443
