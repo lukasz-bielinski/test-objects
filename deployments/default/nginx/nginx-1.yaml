@@ -30,9 +30,9 @@ spec:
         - containerPort: 80
           name: http
           protocol: TCP
-        volumeMounts:
-         - name: www
-           mountPath: /usr/share/nginx/html/u
+        # volumeMounts:
+        #  - name: www
+        #    mountPath: /usr/share/nginx/html/u
         # - name: hooks
         #   mountPath: /hooks
         lifecycle:
@@ -54,15 +54,16 @@ spec:
           timeoutSeconds: 1
 
 
-      volumes:
-      # - name: secr
-      #   emptyDir: {}
-      - name: www
-        secret:
-          secretName: www
-      # - name: mypd
-      #   persistentVolumeClaim:
-      #     claimName: nginx-1
+      # volumes:
+      # # - name: secr
+      # #   emptyDir: {}
+      # - name: www
+      #   secret:
+      #     secretName: www
+      # # - name: mypd
+      # #   persistentVolumeClaim:
+      # #     claimName: nginx-1
+      #
 
 ---
 
