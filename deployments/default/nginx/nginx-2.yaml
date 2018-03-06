@@ -4,7 +4,7 @@ metadata:
   name: nginx-2
   namespace: default
 spec:
-  replicas: 0
+  replicas: 1
   revisionHistoryLimit: 50
   strategy:
       rollingUpdate:
@@ -60,9 +60,9 @@ spec:
       - name: www
         secret:
           secretName: www
-      # - name: mypd
-      #   persistentVolumeClaim:
-      #     claimName: nginx-2
+      - name: mypd
+        persistentVolumeClaim:
+          claimName: nginx-2
 
 ---
 
