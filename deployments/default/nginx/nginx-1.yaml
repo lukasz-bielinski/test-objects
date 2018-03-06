@@ -44,13 +44,13 @@ spec:
         livenessProbe:
           tcpSocket:
             port: 80
-          initialDelaySeconds: 5
+          initialDelaySeconds: 35
           timeoutSeconds: 1
 
         readinessProbe:
           tcpSocket:
               port: 80
-          initialDelaySeconds: 5
+          initialDelaySeconds: 34
           timeoutSeconds: 1
 
 
