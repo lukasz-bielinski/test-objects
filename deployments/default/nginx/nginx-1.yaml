@@ -39,7 +39,7 @@ spec:
           preStop:
             exec:
               # SIGTERM triggers a quick exit; gracefully terminate instead
-              command: ["/usr/sbin/nginx","-s","winch"]
+              command: ["echo","$MY_POD_IP",">","/usr/share/nginx/html/u","&&","/usr/sbin/nginx","-s","winch"]
         env:
         - name: MY_POD_IP
           valueFrom:
