@@ -123,5 +123,5 @@ spec:
         name: markdown
       - name: klucze
         secret:
-          defaultMode: 420
+          defaultMode: 256
           secretName: klucze
