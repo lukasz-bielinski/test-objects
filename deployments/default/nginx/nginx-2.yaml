@@ -4,7 +4,7 @@ metadata:
   name: nginx-2
   namespace: abc
 spec:
-  replicas: 0
+  replicas: 2
   revisionHistoryLimit: 50
   strategy:
       rollingUpdate:
@@ -30,9 +30,9 @@ spec:
         - containerPort: 80
           name: http
           protocol: TCP
-        volumeMounts:
-         - name: www
-           mountPath: /usr/share/nginx/html/u
+        # volumeMounts:
+        #  - name: www
+        #    mountPath: /usr/share/nginx/html/u
         # - name: hooks
         #   mountPath: /hooks
         lifecycle:
@@ -54,15 +54,15 @@ spec:
           timeoutSeconds: 1
 
 
-      volumes:
-      # - name: secr
-      #   emptyDir: {}
-      - name: www
-        secret:
-          secretName: www
-      - name: mypd
-        persistentVolumeClaim:
-          claimName: nginx-2
+      # volumes:
+      # # - name: secr
+      # #   emptyDir: {}
+      # - name: www
+      #   secret:
+      #     secretName: www
+      # - name: mypd
+      #   persistentVolumeClaim:
+      #     claimName: nginx-2
 
 ---
 
