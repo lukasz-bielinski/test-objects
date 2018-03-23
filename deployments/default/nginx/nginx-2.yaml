@@ -2,9 +2,9 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: nginx-2
-  namespace: abc
+  namespace: default
 spec:
-  replicas: 0
+  replicas: 2
   revisionHistoryLimit: 50
   strategy:
       rollingUpdate:
